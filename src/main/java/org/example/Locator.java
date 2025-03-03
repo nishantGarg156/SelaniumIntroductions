@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.Objects;
+
 public class Locator {
 
    // public void register
@@ -28,9 +30,11 @@ public class Locator {
           driver.findElement(By.id("visitUsTwo")).click();
           String userName = driver.findElement(By.id("inputUsername")).getText();
           String Password = driver.findElement(By.name("inputPassword")).getText();
-          driver.get(driver.findElement(By.cssSelector(".top-right :nth-child(2) >a.theme-btn")).getText());
+
+
       }
-      driver.quit();
+
+
 
     }
 
