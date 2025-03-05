@@ -18,6 +18,7 @@ public class DropDown {
         WebElement Ddown = driver.findElement(By.xpath("//select[@name='country']"));
         Select down = new Select(Ddown);
         down.selectByValue("INDIA");
+        //Web Elements creation for fetching data:
         WebElement first_name = driver.findElement(By.xpath("//input[@name='firstName']"));
         WebElement last_name = driver.findElement(By.xpath("//input[@name='lastName']"));
         WebElement username = driver.findElement(By.xpath("//input[@name='email']"));

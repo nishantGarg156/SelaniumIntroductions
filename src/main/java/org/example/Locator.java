@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
@@ -39,5 +40,6 @@ public class Locator {
             String userName = driver.findElement(By.id("inputUsername")).getText();
             String Password = driver.findElement(By.name("inputPassword")).getText();
         }
+
     }
 }
