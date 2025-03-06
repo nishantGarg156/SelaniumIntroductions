@@ -22,14 +22,17 @@ public class ClaimPage {
     private By createButton = By.xpath("//button[@type='submit']");
     private By fetchReferenceIdBox = By.xpath("//input[@class='oxd-input oxd-input--active' and @disabled]");
 
+
+
     public ClaimPage(WebDriver driver){
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         js = (JavascriptExecutor)driver;
     }
 
-
-
+    public By getFetchReferenceIdBox() {
+        return fetchReferenceIdBox;
+    }
 
     public void submitClaim(){
         WebElement submitClaimElement = driver.findElement(SubmitClaim);
@@ -60,10 +63,11 @@ public class ClaimPage {
     public void clickCreateButton(){
         WebElement  createButtonElement = driver.findElement(createButton);
         createButtonElement.click();
+
     }
 
     public String fetchRefernceId() {
-        WebElement referencedIdElement = driver.findElement(fetchReferenceIdBox);
+        WebElement referencedIdElement = wait.until(ExpectedConditions.visibilityOfElementLocated(fetchReferenceIdBox));
         wait.until(d -> !((String) js.executeScript("return arguments[0].value", referencedIdElement)).isEmpty());
         String referenceID = referencedIdElement.getAttribute("value");
         return referenceID;
@@ -71,6 +75,17 @@ public class ClaimPage {
 
 
     }
+
+    public boolean validClaim(String ReFID){
+        driver.findElement(By.xpath("(//a[contains(@class, 'oxd-topbar-body-nav-tab-item')])[2]")).click();
+        WebElement validClaimElement = driver.findElement(By.xpath("//div[contains(text(),'"+ ReFID+"')]"));
+        return !(validClaimElement.isSelected());
+
+    }
+
+
+
+
 
 
 

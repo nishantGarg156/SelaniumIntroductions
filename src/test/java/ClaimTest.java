@@ -9,9 +9,10 @@ import org.testng.annotations.Test;
 public class ClaimTest extends Base {
     DashBoardPage dashBoardPage;
     ClaimPage claimPage;
+    private String refId;
 
 
-    @Test
+    @Test(priority = 1)
     public void testValidationClaim(){
         dashBoardPage = new DashBoardPage(getDriver());
         claimPage = new ClaimPage(getDriver());
@@ -21,7 +22,14 @@ public class ClaimTest extends Base {
         claimPage.selectCurrenecy();
         claimPage.enterRemark("Nishant");
         claimPage.clickCreateButton();
-        String refId = claimPage.fetchRefernceId();
+
+         refId = claimPage.fetchRefernceId();
         Assert.assertTrue(!refId.isEmpty());
+    }
+
+    @Test(priority = 2)
+    public void validClaim(){
+        claimPage = new ClaimPage(getDriver());
+        Assert.assertTrue(claimPage.validClaim(refId));
     }
 }

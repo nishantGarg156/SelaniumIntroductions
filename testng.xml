@@ -16,6 +16,7 @@
         <classes>
             <class name="LoginTest"/>
             <class name="ClaimTest"/>
+            <class name="LogoutTest"/>
 
         </classes>
     </test>
