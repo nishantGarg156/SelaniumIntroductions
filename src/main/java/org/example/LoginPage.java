@@ -38,8 +38,11 @@ public class LoginPage {
        loginButtonElement.click();
    }
 
+  // To perform login-------
    public void login(String username , String password){
-
+        enterUserName(username);
+        enterPassword(password);
+        clickLoginButton();
    }
 
 

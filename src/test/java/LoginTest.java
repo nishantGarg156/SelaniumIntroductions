@@ -6,19 +6,13 @@ import org.testng.annotations.Test;
 
 public class LoginTest extends Base {
 
-    private LoginPage loginPage;
 
-    @BeforeClass
-    @Override
-    public void setup() {
-        super.setup();
-        loginPage = new LoginPage(driver);
-        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 
-    }
 
     @Test
     public void testValidLogin(){
+        getDriver().get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        LoginPage loginPage = new LoginPage(getDriver());
         loginPage.enterUserName("Admin");
         loginPage.enterPassword("admin123");
         loginPage.clickLoginButton();
