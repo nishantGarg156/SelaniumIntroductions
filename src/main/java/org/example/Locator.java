@@ -5,12 +5,14 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.swing.text.html.Option;
 import java.sql.SQLOutput;
 import java.time.Duration;
 import java.util.NoSuchElementException;
@@ -35,6 +37,8 @@ public class Locator {
         String url = link.getAttribute("href"); // Get the href value
         driver.navigate().to(url);
         driver.findElement(By.xpath("//a[contains(text(), 'Submit Claim')]")).click();
+
+
 
 
 
